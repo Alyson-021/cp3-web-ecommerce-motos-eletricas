@@ -5,31 +5,31 @@ const produtos = [
         // Objetos - {nome e preco} representando entidades
         nome: "GCX X11",
         preco: 8990,
-        imagem: "./assets/img/moto1.jpg",
+        imagem: "./src/assets/img/moto01.jpg",
         perfil: "Explorador Urbano"
     },
     {
         nome: "Shineray SE 1",
         preco: 12990,
-        imagem: "./assets/img/moto2.jpg",
+        imagem: "./src/assets/img/moto02.jpg",
         perfil: "Trabalhador Inteligente"
     },
     {
         nome: "Yadea Owin",
         preco: 15990,
-        imagem: "./assets/img/moto3.jpg",
+        imagem: "./src/assets/img/moto03.jpg",
         perfil: "Lifestyle Premium"
     },
     {
         nome: "Voltz EV1",
         preco: 18990,
-        imagem: "./assets/img/moto4.jpg",
+        imagem: "./src/assets/img/moto04.jpg",
         perfil: "Conectado Digital"
     },
     {
         nome: "Watts W125",
         preco: 22990,
-        imagem: "./assets/img/moto5.jpg",
+        imagem: "./src/assets/img/moto05.jpg",
         perfil: "Motociclista Tradicional"
     }
 ];
@@ -70,6 +70,8 @@ function renderizarProdutos() {
         </button>
         
         `;
+        // Inserindo card no HTML
+        conteiner.appendChild(card);
     })
 }
 
