@@ -1,3 +1,199 @@
+// =================================================
+// Array principal contendo os produtos do ecommerce
+// =================================================
+
+const produtos = [
+    {
+        nome: "GCX X11",
+        preco: 8990,
+        imagem: "./src/assets/img/moto01.jpg",
+        perfil: "Explorador Urbano"
+    },
+
+    {
+        nome: "Shineray SE 1",
+        preco: 12990,
+        imagem: "./src/assets/img/moto02.jpg",
+        perfil: "Trabalhador Inteligente"
+    },
+
+    {
+        nome: "Yadea Owin",
+        preco: 15990,
+        imagem: "./src/assets/img/moto03.jpg",
+        perfil: "Lifestyle Premium"
+    },
+
+    {
+        nome: "Voltz EV1",
+        preco: 18990,
+        imagem: "./src/assets/img/moto04.jpg",
+        perfil: "Conectado Digital"
+    },
+
+    {
+        nome: "Watts W125",
+        preco: 22990,
+        imagem: "./src/assets/img/moto05.jpg",
+        perfil: "Motociclista Tradicional"
+    }
+
+];
+
+
+// ======================================
+// RENDERIZAÇÃO DOS PRODUTOS
+// ======================================
+
+// Local onde os cards serão criados / Manipulação em DOM
+const container = document.getElementById("container-produtos");
+
+
+// Verifica se o container existe
+if(container){
+
+    // Função para criar os Cards
+    function renderizarProdutos(){
+        // Loop - Percorre todos os produtos/arrays
+        produtos.forEach(produto => {
+            // Criando uma div
+            const card = document.createElement("div");
+            // Adicionando uma classe
+            card.classList.add("card");
+            // Estrutura interna do Card
+            // Pegando o preço do produto e formatando no padrão brasileiro.
+            // <pan> Template String `texto ${variavel}`
+            card.innerHTML = `
+                <img src="${produto.imagem}" alt="${produto.nome}">
+                <div class="card-conteudo">
+                    <h3>${produto.nome}</h3>
+                    <p>${produto.perfil}</p>
+
+                    <span>
+                        R$ ${produto.preco.toLocaleString("pt-BR")}
+                    </span>
+
+                    <button>
+                        Comprar
+                    </button>
+                </div>
+            `;
+            // Inserindo card no HTML
+            container.appendChild(card);
+        });
+    }
+    // Executando a função
+    renderizarProdutos();
+
+}
+
+
+
+// ======================================
+// CARRINHO + REDUCE
+// ======================================
+
+// Produtos do carrinho
+const carrinho = [
+    {
+        nome: "GCX X11",
+        preco: 8990
+    },
+
+    {
+        nome: "Voltz EV1",
+        preco: 18990
+    },
+
+    {
+        nome: "Yadea Owin",
+        preco: 15990
+    }
+
+];
+
+// Capturando elementos
+const listaCarrinho = document.getElementById("lista-carrinho");
+const totalCompra = document.getElementById("total-compra");
+const btnDesconto = document.getElementById("btn-desconto");
+
+// Só executa na página loja.html
+if(listaCarrinho){
+    // Renderiza itens
+    carrinho.forEach(item => {
+        listaCarrinho.innerHTML += `
+            <div class="item-carrinho">
+                <h3>${item.nome}</h3>
+                <p>
+                    R$ ${item.preco.toLocaleString("pt-BR")}
+                </p>
+            </div>
+        `;
+    });
+
+    // ======================================
+    // REDUCE
+    // ======================================
+
+    /*
+    O reduce percorre o array inteiro
+    e transforma vários valores em um só.
+
+    Aqui:
+    vários preços => total final
+    */
+
+    let total = carrinho.reduce((acumulador, item) => {
+
+        return acumulador + item.preco;
+
+    }, 0);
+
+
+    // Exibe valor
+    totalCompra.innerText = `
+        R$ ${total.toLocaleString("pt-BR")}
+    `;
+
+
+    // ======================================
+    // DESCONTO
+    // ======================================
+
+    btnDesconto.addEventListener("click", () => {
+
+        const desconto = total * 0.10;
+
+        const totalFinal = total - desconto;
+
+        totalCompra.innerText = `
+            R$ ${totalFinal.toLocaleString("pt-BR")}
+        `;
+
+    });
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Array principal contendo os produtos do ecommerce
 
 const produtos = [
@@ -39,7 +235,7 @@ const produtos = [
 // ===============================
 
 // Local onde os cards serão criados / Manipulação em DOM
-const conteiner = document.getElementById("container-produtos");
+const container = document.getElementById("container-produtos");
 
 // ===============================
 // Função para criar os Cards
@@ -71,7 +267,7 @@ function renderizarProdutos() {
         
         `;
         // Inserindo card no HTML
-        conteiner.appendChild(card);
+        container.appendChild(card);
     })
 }
 
@@ -99,87 +295,3 @@ renderizarProdutos();
 
 
 
-
-
-// const produtos = [
-
-//     {
-//         nome: "Voltz EV1",
-//         preco: 18990,
-//         imagem: "./src/assets/img/moto1.jpg",
-
-//         descricao: "Moto elétrica urbana com autonomia de 100km."
-//     },
-
-//     {
-//         nome: "Watts W125",
-//         preco: 21990,
-//         imagem: "./src/assets/img/moto2.jpg",
-
-//         descricao: "Modelo esportivo elétrico com alta eficiência."
-//     },
-
-//     {
-//         nome: "Super Soco TC",
-//         preco: 24990,
-//         imagem: "./src/assets/img/moto3.jpg",
-
-//         descricao: "Design futurista e excelente desempenho."
-//     },
-
-//     {
-//         nome: "Horwin CR6",
-//         preco: 27990,
-//         imagem: "./src/assets/img/moto4.jpg",
-
-//         descricao: "Modelo premium para viagens urbanas."
-//     },
-
-//     {
-//         nome: "VMoto Stash",
-//         preco: 31990,
-//         imagem: "./src/assets/img/moto5.jpg",
-
-//         descricao: "Moto elétrica esportiva de última geração."
-//     }
-// ]
-
-// /*
-// Seleciona o container onde os produtos
-// serão renderizados dinamicamente
-// */
-// const container = document.getElementById("produtos-container")
-
-// /*
-// Percorre cada item do array para criar
-// os cards dinamicamente usando DOM
-// */
-// produtos.forEach(produto => {
-
-//     // Criação da estrutura principal do card
-//     const card = document.createElement("div")
-
-//     card.classList.add("card")
-
-//     // Estrutura HTML interna do card
-//     card.innerHTML = `
-
-//         <img src="${produto.imagem}" alt="${produto.nome}">
-
-//         <div class="card-conteudo">
-
-//             <h2>${produto.nome}</h2>
-
-//             <p>${produto.descricao}</p>
-
-//             <span class="preco">
-//                 R$ ${produto.preco.toLocaleString("pt-BR")}
-//             </span>
-
-//         </div>
-//     `
-
-//     // Insere o card dentro do container
-//     container.appendChild(card)
-
-// })
