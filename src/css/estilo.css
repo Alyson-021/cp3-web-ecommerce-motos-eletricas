@@ -5,11 +5,27 @@
     box-sizing: border-box;
 }
 
+:root{
+    --preto: #0f0f0f;
+    --cinza-card: #1b1b1b;
+    --cinza-borda: #2d2d2d;
+
+    --neon: #00f0ff;
+    --verde-neon: #00ffae;
+
+    --texto: #f5f5f5;
+    --texto-secundario: #b3b3b3;
+}
+
 /* Estilo principal do site */
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #111;
-    color: white;
+    background: linear-gradient(
+    180deg,
+    #0a0a0a,
+    #121212,
+    #080808
+    )
 }
 
 /* Cabeçalho Principal */
@@ -18,8 +34,22 @@ header{
     justify-content: space-between;
     align-items: center;
 
-    padding: 20px 50px;
-    background-color: #000;
+    padding: 20px 60px;
+    background-color: rgba(0,0,0,0.85);
+    border-bottom: 1px solid #1f1f1f;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(10px);
+    z-index: 999;
+}
+
+header h1{
+    color: var(--neon);
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 5px rgba(0,240,255,0.4);
 }
 
 /* Links do menu */
@@ -31,27 +61,89 @@ nav{
 nav a{
     color: white;
     text-decoration: none;
+
+    transition: 0.3s;
+
+    position: relative;
+}
+
+nav a:hover{
+    color: var(--neon);
 }
 
 /* Área de destaque principal */
 .banner{
+    /* ... seu código atual ... */
+
+    /* Evita desfoque ao redimensionar a imagem */
+    background-repeat: no-repeat;
+    
+    /* Melhora a nitidez em telas de alta resolução (Retina) */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    
+    min-height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     text-align: center;
-    padding: 80px 20px ;
+
+    padding: 40px;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.7),
+            rgba(0,0,0,0.8)
+        ),
+        url("../assets/img/Bmw.png");
+
+    background-size: cover;
+    background-position: center;
 }
 
 .banner h2{
-    font-size: 3rem;
+    font-size: 4rem;
+
+    max-width: 700px;
+
+    color: white;
+
+    text-shadow:
+        0 0 20px rgba(0,240,255,0.25);
+}
+
+.banner p{
+    margin-top: 20px;
+
+    font-size: 1.2rem;
+
+    color: var(--texto-secundario);
+
+    max-width: 600px;
 }
 
 /* Container dos produtos */
 #produtos{
-    padding: 20px 40px;
+    padding: 60px 40px;
+}
+
+#produtos h2{
+    text-align: center;
+
+    margin-bottom: 40px;
+
+    font-size: 2rem;
+
+    color: #00f7ff;
 }
 
 #container-produtos{
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px;
 
     justify-content: center;
 }
@@ -59,16 +151,36 @@ nav a{
 /* Card individual de produto */
 .card{
     width: 340px;
-    background-color: #1d1d1d;
-    border-radius: 12px;
+
+    background: linear-gradient(
+        180deg,
+        #1b1b1b,
+        #121212
+    );
+
+    border: 1px solid #2a2a2a;
+
+    border-radius: 16px;
+
     overflow: hidden;
+
     padding: 20px;
-    transition: 0.3s;
+
+    transition: 0.4s;
+
+    position: relative;
 }
 
 /* Efeito visual ao passar mouse */
 .card:hover{
-    transform: scale(1.03);
+    transform:
+        translateY(-8px)
+        scale(1.02);
+
+    border-color: rgba(0,240,255,0.5);
+
+    box-shadow:
+        0 0 25px rgba(0,240,255,0.15);
 }
 
 /* Imagem do card */
@@ -79,32 +191,170 @@ nav a{
     border-radius: 3px;
 }
 
+.card-conteudo{
+    padding: 20px;
+}
+
 /* Nome do produto */
 .card h3{
-    margin-top: 15px;
+    margin-bottom: 10px;
+
+    color: #00f7ff;
+}
+
+.card p{
+    color: #cccccc;
+
+    margin-bottom: 15px;
 }
 
 .card span{
     display: block;
-    margin: 15px 0;
 
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+
     font-weight: bold;
+
+    margin-bottom: 20px;
 }
 
 .card button{
     width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
 
-    background-color: #00b894;
-    color: white;
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        var(--neon),
+        var(--verde-neon)
+    );
+
+    color: black;
+
+    font-weight: bold;
+
     cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.card button:hover{
+    transform: scale(1.03);
+
+    box-shadow:
+        0 0 20px rgba(0,255,174,0.35);
+}
+
+/* =========================
+CARRINHO
+========================= */
+
+.carrinho{
+    max-width: 900px;
+
+    margin: 60px auto;
+
+    padding: 30px;
+}
+
+
+.item-carrinho{
+    background-color: #121821;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid #00f7ff22;
+}
+
+
+.total-box{
+    margin-top: 30px;
+
+    background-color: #121821;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+
+.total-box h2{
+    margin-bottom: 20px;
+}
+
+
+#btn-desconto{
+    padding: 15px 30px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background-color: #00f7ff;
+
+    color: black;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+CATÁLOGO / PERSONAS
+========================= */
+
+.catalogo{
+    padding: 60px 40px;
+}
+
+
+.persona{
+    background-color: #121821;
+
+    margin-bottom: 30px;
+
+    padding: 30px;
+
+    border-radius: 14px;
+
+    border-left: 4px solid #00f7ff;
+}
+
+
+.persona h2{
+    color: #00f7ff;
+
+    margin-bottom: 20px;
+}
+
+
+.persona ul{
+    list-style: none;
+}
+
+
+.persona li{
+    margin-bottom: 10px;
+
+    color: #d9d9d9;
 }
 
 /* Rodapé */
 footer{
     text-align: center;
     padding: 30px;
+    background-color: #05070a;
+
+    margin-top: 60px;
 }
