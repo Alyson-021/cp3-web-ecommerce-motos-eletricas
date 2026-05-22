@@ -36,6 +36,13 @@ const produtos = [
         preco: 22990,
         imagem: "./src/assets/img/moto05.jpg",
         perfil: "Motociclista Tradicional"
+    },
+
+    {
+        nome: "VMoto Super Soco CPx PRO",
+        preco: 33990,
+        imagem: "./src/assets/img/moto06.jpg",
+        perfil: "Executivo Performance"
     }
 
 ];
