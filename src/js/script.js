@@ -80,13 +80,37 @@ if(container){
                         R$ ${produto.preco.toLocaleString("pt-BR")}
                     </span>
 
-                    <button>
+                    <button class="btn-comprar">
                         Comprar
                     </button>
                 </div>
             `;
             // Inserindo card no HTML
             container.appendChild(card);
+
+            // Seleciona botão do card criado
+            const botaoComprar =
+            card.querySelector(".btn-comprar");
+
+            // Evento de clique
+            botaoComprar.addEventListener("click", () => {
+
+                // Adiciona produto no carrinho
+                carrinho.push({
+                    nome: produto.nome,
+                    preco: produto.preco
+                });
+
+                // Salva no navegador
+                salvarCarrinho();
+
+                // Toast visual
+                toast.classList.add("show");
+                setTimeout(() => {
+                    toast.classList.remove("show");
+                }, 2500);
+
+            });
         });
     }
     // Executando a função
@@ -101,66 +125,140 @@ if(container){
 // ======================================
 
 // Produtos do carrinho
-const carrinho = [
-    {
-        nome: "GCX X11",
-        preco: 8990
-    },
+// let carrinho = [
+//     {
+//         nome: "GCX X11",
+//         preco: 8990
+//     },
 
-    {
-        nome: "Voltz EV1",
-        preco: 18990
-    },
+//     {
+//         nome: "Shineray SE 1",
+//         preco: 12990
+//     },
 
-    {
-        nome: "Yadea Owin",
-        preco: 15990
-    }
+//     {
+//         nome: "Yadea Owin",
+//         preco: 15990
+//     },
 
-];
+//     {
+//         nome: "Voltz EV1",
+//         preco: 18990
+//     },
 
-// Capturando elementos
-const listaCarrinho = document.getElementById("lista-carrinho");
-const totalCompra = document.getElementById("total-compra");
-const btnDesconto = document.getElementById("btn-desconto");
+//     {
+//         nome: "Watts W125",
+//         preco: 22990
+//     },
+
+//     {
+//         nome: "VMoto Super Soco CPx PRO",
+//         preco: 33990
+//     }
+
+// ];
+
+// ======================================
+// CARRINHO COM LOCALSTORAGE
+// ======================================
+
+// Busca carrinho salvo no navegador
+let carrinho =
+JSON.parse(localStorage.getItem("carrinho")) || [];
+
+// Salva carrinho no navegador
+function salvarCarrinho(){
+    localStorage.setItem(
+        "carrinho",
+        JSON.stringify(carrinho)
+    );
+}
+
+// Capturando elementos do HTML
+const listaCarrinho =
+document.getElementById("lista-carrinho");
+
+const totalCompra =
+document.getElementById("total-compra");
+
+const btnDesconto =
+document.getElementById("btn-desconto");
+
 
 // Só executa na página loja.html
 if(listaCarrinho){
-    // Renderiza itens
-    carrinho.forEach(item => {
-        listaCarrinho.innerHTML += `
-            <div class="item-carrinho">
-                <h3>${item.nome}</h3>
-                <p>
-                    R$ ${item.preco.toLocaleString("pt-BR")}
-                </p>
-            </div>
+
+    // ======================================
+    // RENDERIZA CARRINHO
+    // ======================================
+
+    function renderizarCarrinho(){
+
+        // Limpa HTML antes de renderizar novamente
+        listaCarrinho.innerHTML = "";
+
+        // Percorre produtos do carrinho
+        carrinho.forEach((item, index) => {
+
+            listaCarrinho.innerHTML += `
+
+                <div class="item-carrinho">
+
+                    <div>
+                        <h3>${item.nome}</h3>
+
+                        <p>
+                            R$ ${item.preco.toLocaleString("pt-BR")}
+                        </p>
+                    </div>
+
+                    <button
+                    class="btn-remover"
+                    onclick="removerItem(${index})">
+
+                        Remover
+
+                    </button>
+
+                </div>
+
+            `;
+
+        });
+
+        atualizarTotal();
+
+    }
+
+
+    // ======================================
+    // ATUALIZA TOTAL
+    // ======================================
+
+    function atualizarTotal(){
+
+        let total = carrinho.reduce((acc, item) => {
+
+            return acc + item.preco;
+
+        }, 0);
+
+        totalCompra.innerText = `
+            R$ ${total.toLocaleString("pt-BR")}
         `;
-    });
+
+    }
+
 
     // ======================================
-    // REDUCE
+    // REMOVER ITEM
     // ======================================
 
-    /*
-    O reduce percorre o array inteiro
-    e transforma vários valores em um só.
-
-    Aqui:
-    vários preços => total final
-    */
-
-    let total = carrinho.reduce((acumulador, item) => {
-
-        return acumulador + item.preco;
-
-    }, 0);
-
-
-    // Exibe valor
-    totalCompra.innerText = `
-        R$ ${total.toLocaleString("pt-BR")}
-    `;
+    window.removerItem = function(index){
+    carrinho.splice(index, 1);
+    salvarCarrinho();
+    renderizarCarrinho();
+}
 
 
     // ======================================
@@ -168,6 +266,12 @@ if(listaCarrinho){
     // ======================================
 
     btnDesconto.addEventListener("click", () => {
+
+        let total = carrinho.reduce((acc, item) => {
+
+            return acc + item.preco;
+
+        }, 0);
 
         const desconto = total * 0.10;
 
@@ -179,6 +283,10 @@ if(listaCarrinho){
 
     });
 
+
+    // Inicializa renderização
+    renderizarCarrinho();
+
 }
 
 // ======================================
@@ -188,23 +296,3 @@ if(listaCarrinho){
 const toast = document.getElementById("toast");
 
 
-// Seleciona todos os botões comprar
-const botoesComprar =
-document.querySelectorAll(".card button");
-
-
-botoesComprar.forEach(botao => {
-
-    botao.addEventListener("click", () => {
-
-        toast.classList.add("show");
-
-        setTimeout(() => {
-
-            toast.classList.remove("show");
-
-        }, 2500);
-
-    });
-
-});
