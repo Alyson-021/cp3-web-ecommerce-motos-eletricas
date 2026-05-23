@@ -2,9 +2,7 @@
 // Array principal contendo os produtos do ecommerce
 // =================================================
 
-const caminhoBase = window.location.pathname.includes("/pages/")
-    ? "../src/assets/img/"
-    : "./src/assets/img/";
+const caminhoBase = "/cp3-web-ecommerce-motos-eletricas/src/assets/img/";
 
 const produtos = [
     {

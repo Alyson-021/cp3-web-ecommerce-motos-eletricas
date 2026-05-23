@@ -88,7 +88,7 @@ nav a:hover{
             rgba(0,0,0,0.7),
             rgba(0,0,0,0.8)
         ),
-        url("../assets/img/bmw.jpg");
+        url("/cp3-web-ecommerce-motos-eletricas/src/assets/img/bmw.jpg");
 
     background-size: cover;
     background-position: center;
@@ -423,7 +423,7 @@ Estilização da aba Sobre
             rgba(0,0,0,0.7),
             rgba(0,0,0,0.8)
         ),
-        url("../assets/img/bmw.jpg");
+        url("/cp3-web-ecommerce-motos-eletricas/src/assets/img/bmw.jpg");
 
     background-size: cover;
     background-position: center;
