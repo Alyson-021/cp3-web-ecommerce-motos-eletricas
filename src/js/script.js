@@ -181,3 +181,30 @@ if(listaCarrinho){
 
 }
 
+// ======================================
+// TOAST DE COMPRA
+// ======================================
+
+const toast = document.getElementById("toast");
+
+
+// Seleciona todos os botões comprar
+const botoesComprar =
+document.querySelectorAll(".card button");
+
+
+botoesComprar.forEach(botao => {
+
+    botao.addEventListener("click", () => {
+
+        toast.classList.add("show");
+
+        setTimeout(() => {
+
+            toast.classList.remove("show");
+
+        }, 2500);
+
+    });
+
+});

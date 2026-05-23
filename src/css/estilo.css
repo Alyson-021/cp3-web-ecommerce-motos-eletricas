@@ -359,3 +359,28 @@ PERSONA CARD MELHORADO
     color: var(--verde-neon);
     margin-bottom: 10px;
 }
+
+/* =========================
+TOAST
+========================= */
+
+#toast{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    background-color: #111;
+    color: white;
+    padding: 18px 24px;
+    border-left: 4px solid var(--verde-neon);
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.4s;
+    z-index: 9999;
+}
+
+#toast.show{
+    opacity: 1;
+    transform: translateY(0);
+}
