@@ -75,10 +75,6 @@ nav a:hover{
 
     /* Evita desfoque ao redimensionar a imagem */
     background-repeat: no-repeat;
-    
-    /* Melhora a nitidez em telas de alta resolução (Retina) */
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
     min-height: 90vh;
 
     display: flex;
@@ -414,9 +410,6 @@ Estilização da aba Sobre
     /* Evita desfoque ao redimensionar a imagem */
     background-repeat: no-repeat;
     
-    /* Melhora a nitidez em telas de alta resolução (Retina) */
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
     min-height: 90vh;
 
     display: flex;
