@@ -389,23 +389,68 @@ TOAST
 
 .item-carrinho{
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
 }
 
 
 .btn-remover{
     background-color: crimson;
-
     border: none;
-
     padding: 10px 14px;
-
     border-radius: 8px;
-
     color: white;
-
     cursor: pointer;
+}
+
+/* ================================================
+Estilização da aba Sobre
+================================================ */
+
+.sobre-container{
+    padding: 80px 40px;
+}
+
+
+.sobre-hero{
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+
+.sobre-hero h2{
+    font-size: 3rem;
+    color: var(--neon);
+    margin-bottom: 20px;
+}
+
+
+.sobre-hero p{
+    color: var(--texto-secundario);
+    line-height: 1.8;
+}
+
+
+.sobre-cards{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.sobre-card{
+    width: 300px;
+    background-color: #161616;
+    padding: 30px;
+    border-radius: 14px;
+    border: 1px solid #2a2a2a;
+    transition: 0.4s;
+}
+
+
+.sobre-card:hover{
+    transform: translateY(-6px);
+    border-color: rgba(0,240,255,0.4);
 }
