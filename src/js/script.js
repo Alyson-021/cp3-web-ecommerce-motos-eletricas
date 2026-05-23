@@ -2,46 +2,50 @@
 // Array principal contendo os produtos do ecommerce
 // =================================================
 
+const caminhoBase = window.location.pathname.includes("/pages/")
+    ? "../src/assets/img/"
+    : "./src/assets/img/";
+
 const produtos = [
     {
         nome: "GCX X11",
         preco: 8990,
-        imagem: "/src/assets/img/moto01.jpg",
+        imagem: caminhoBase + "moto01.jpg",
         perfil: "Explorador Urbano"
     },
 
     {
         nome: "Shineray SE 1",
         preco: 12990,
-        imagem: "/src/assets/img/moto02.jpg",
+        imagem: caminhoBase + "moto02.jpg",
         perfil: "Trabalhador Inteligente"
     },
 
     {
         nome: "Yadea Owin",
         preco: 15990,
-        imagem: "/src/assets/img/moto03.jpg",
+        imagem: caminhoBase + "moto03.jpg",
         perfil: "Lifestyle Premium"
     },
 
     {
         nome: "Voltz EV1",
         preco: 18990,
-        imagem: "/src/assets/img/moto04.jpg",
+        imagem: caminhoBase + "moto04.jpg",
         perfil: "Conectado ao Digital"
     },
 
     {
         nome: "Watts W125",
         preco: 22990,
-        imagem: "/src/assets/img/moto05.jpg",
+        imagem: caminhoBase + "moto05.jpg",
         perfil: "Motociclista Tradicional"
     },
 
     {
         nome: "VMoto Super Soco CPx PRO",
         preco: 33990,
-        imagem: "/src/assets/img/moto06.jpg",
+        imagem: caminhoBase + "moto06.jpg",
         perfil: "Executivo Performance"
     }
 
