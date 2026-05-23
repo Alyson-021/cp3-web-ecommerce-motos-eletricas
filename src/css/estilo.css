@@ -482,40 +482,32 @@ Estilização da aba Sobre
 
 footer{
     background-color: #05070a;
-
     padding: 60px 20px 30px;
-
     border-top: 1px solid #1f1f1f;
 }
 
 
 .footer-conteudo{
     text-align: center;
-
     margin-bottom: 30px;
 }
 
 
 .footer-conteudo h2{
     color: var(--neon);
-
     margin-bottom: 10px;
 }
 
 
 .footer-links{
     margin-top: 20px;
-
     display: flex;
-
     justify-content: center;
-
     gap: 20px;
 }
 
 
 .footer-links a{
     color: white;
-
     text-decoration: none;
 }
