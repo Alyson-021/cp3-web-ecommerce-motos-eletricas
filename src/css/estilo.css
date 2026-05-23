@@ -409,6 +409,31 @@ Estilização da aba Sobre
 
 .sobre-container{
     padding: 80px 40px;
+    /* ... seu código atual ... */
+
+    /* Evita desfoque ao redimensionar a imagem */
+    background-repeat: no-repeat;
+    
+    /* Melhora a nitidez em telas de alta resolução (Retina) */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    min-height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.7),
+            rgba(0,0,0,0.8)
+        ),
+        url("../assets/img/Bmw.png");
+
+    background-size: cover;
+    background-position: center;
 }
 
 
@@ -453,4 +478,44 @@ Estilização da aba Sobre
 .sobre-card:hover{
     transform: translateY(-6px);
     border-color: rgba(0,240,255,0.4);
+}
+
+footer{
+    background-color: #05070a;
+
+    padding: 60px 20px 30px;
+
+    border-top: 1px solid #1f1f1f;
+}
+
+
+.footer-conteudo{
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+
+.footer-conteudo h2{
+    color: var(--neon);
+
+    margin-bottom: 10px;
+}
+
+
+.footer-links{
+    margin-top: 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+}
+
+
+.footer-links a{
+    color: white;
+
+    text-decoration: none;
 }
