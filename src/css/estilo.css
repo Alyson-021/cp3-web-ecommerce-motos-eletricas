@@ -511,3 +511,23 @@ footer{
     color: white;
     text-decoration: none;
 }
+
+/* ================================================
+IMAGEM DOS PRODUTOS NO CARRINHO
+================================================ */
+
+.item-info{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.imagem-carrinho{
+    width: 90px;
+    height: 70px;
+
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #2a2a2a;
+}

@@ -6,42 +6,42 @@ const produtos = [
     {
         nome: "GCX X11",
         preco: 8990,
-        imagem: "./src/assets/img/moto01.jpg",
+        imagem: "../src/assets/img/moto01.jpg",
         perfil: "Explorador Urbano"
     },
 
     {
         nome: "Shineray SE 1",
         preco: 12990,
-        imagem: "./src/assets/img/moto02.jpg",
+        imagem: "../src/assets/img/moto02.jpg",
         perfil: "Trabalhador Inteligente"
     },
 
     {
         nome: "Yadea Owin",
         preco: 15990,
-        imagem: "./src/assets/img/moto03.jpg",
+        imagem: "../src/assets/img/moto03.jpg",
         perfil: "Lifestyle Premium"
     },
 
     {
         nome: "Voltz EV1",
         preco: 18990,
-        imagem: "./src/assets/img/moto04.jpg",
+        imagem: "../src/assets/img/moto04.jpg",
         perfil: "Conectado ao Digital"
     },
 
     {
         nome: "Watts W125",
         preco: 22990,
-        imagem: "./src/assets/img/moto05.jpg",
+        imagem: "../src/assets/img/moto05.jpg",
         perfil: "Motociclista Tradicional"
     },
 
     {
         nome: "VMoto Super Soco CPx PRO",
         preco: 33990,
-        imagem: "./src/assets/img/moto06.jpg",
+        imagem: "../src/assets/img/moto06.jpg",
         perfil: "Executivo Performance"
     }
 
@@ -98,7 +98,8 @@ if(container){
                 // Adiciona produto no carrinho
                 carrinho.push({
                     nome: produto.nome,
-                    preco: produto.preco
+                    preco: produto.preco,
+                    imagem: produto.imagem
                 });
 
                 // Salva no navegador
@@ -204,12 +205,16 @@ if(listaCarrinho){
 
                 <div class="item-carrinho">
 
-                    <div>
-                        <h3>${item.nome}</h3>
+                    <div class="item-info">
+                        <img src="${item.imagem}" alt="${item.nome}" class="imagem-carrinho">
+                        <div>
+                            <h3>${item.nome}</h3>
 
-                        <p>
-                            R$ ${item.preco.toLocaleString("pt-BR")}
-                        </p>
+                            <p>
+                                R$ ${item.preco.toLocaleString("pt-BR")}
+                            </p>
+                        </div>
+
                     </div>
 
                     <button
