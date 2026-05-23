@@ -45,9 +45,7 @@ header{
 
 header h1{
     color: var(--neon);
-
     letter-spacing: 2px;
-
     text-shadow:
         0 0 5px rgba(0,240,255,0.4);
 }
@@ -61,9 +59,7 @@ nav{
 nav a{
     color: white;
     text-decoration: none;
-
     transition: 0.3s;
-
     position: relative;
 }
 
@@ -81,18 +77,14 @@ nav a:hover{
     /* Melhora a nitidez em telas de alta resolução (Retina) */
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
-    
     min-height: 90vh;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     text-align: center;
-
     padding: 40px;
-
     background:
         linear-gradient(
             rgba(0,0,0,0.7),
@@ -106,22 +98,16 @@ nav a:hover{
 
 .banner h2{
     font-size: 4rem;
-
     max-width: 700px;
-
     color: white;
-
     text-shadow:
         0 0 20px rgba(0,240,255,0.25);
 }
 
 .banner p{
     margin-top: 20px;
-
     font-size: 1.2rem;
-
     color: var(--texto-secundario);
-
     max-width: 600px;
 }
 
@@ -132,11 +118,8 @@ nav a:hover{
 
 #produtos h2{
     text-align: center;
-
     margin-bottom: 40px;
-
     font-size: 2rem;
-
     color: #00f7ff;
 }
 
@@ -151,7 +134,6 @@ nav a:hover{
 /* Card individual de produto */
 .card{
     width: 340px;
-
     background: linear-gradient(
         180deg,
         #1b1b1b,
@@ -159,15 +141,10 @@ nav a:hover{
     );
 
     border: 1px solid #2a2a2a;
-
     border-radius: 16px;
-
     overflow: hidden;
-
     padding: 20px;
-
     transition: 0.4s;
-
     position: relative;
 }
 
@@ -178,7 +155,6 @@ nav a:hover{
         scale(1.02);
 
     border-color: rgba(0,240,255,0.5);
-
     box-shadow:
         0 0 25px rgba(0,240,255,0.15);
 }
@@ -198,53 +174,39 @@ nav a:hover{
 /* Nome do produto */
 .card h3{
     margin-bottom: 10px;
-
     color: #00f7ff;
 }
 
 .card p{
     color: #cccccc;
-
     margin-bottom: 15px;
 }
 
 .card span{
     display: block;
-
     font-size: 1.4rem;
-
     font-weight: bold;
-
     margin-bottom: 20px;
 }
 
 .card button{
     width: 100%;
-
     padding: 14px;
-
     border: none;
-
     border-radius: 10px;
-
     background: linear-gradient(
         90deg,
         var(--neon),
         var(--verde-neon)
     );
-
     color: black;
-
     font-weight: bold;
-
     cursor: pointer;
-
     transition: 0.3s;
 }
 
 .card button:hover{
     transform: scale(1.03);
-
     box-shadow:
         0 0 20px rgba(0,255,174,0.35);
 }
@@ -255,35 +217,25 @@ CARRINHO
 
 .carrinho{
     max-width: 900px;
-
     margin: 60px auto;
-
     padding: 30px;
 }
 
 
 .item-carrinho{
     background-color: #121821;
-
     padding: 20px;
-
     border-radius: 10px;
-
     margin-bottom: 20px;
-
     border: 1px solid #00f7ff22;
 }
 
 
 .total-box{
     margin-top: 30px;
-
     background-color: #121821;
-
     padding: 30px;
-
     border-radius: 12px;
-
     text-align: center;
 }
 
@@ -295,17 +247,12 @@ CARRINHO
 
 #btn-desconto{
     padding: 15px 30px;
-
     border: none;
 
     border-radius: 10px;
-
     background-color: #00f7ff;
-
     color: black;
-
     font-weight: bold;
-
     cursor: pointer;
 }
 
@@ -318,43 +265,97 @@ CATÁLOGO / PERSONAS
     padding: 60px 40px;
 }
 
+/* =========================
+PERSONA CARD MELHORADO
+========================= */
 
 .persona{
-    background-color: #121821;
+    display: flex;
+    gap: 30px;
+    background: linear-gradient(
+        180deg,
+        #161616,
+        #101010
+    );
 
-    margin-bottom: 30px;
+    border: 1px solid #232323;
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    transition: 0.4s;
+}
 
+
+.persona:hover{
+    transform: translateY(-5px);
+    border-color: rgba(0,240,255,0.4);
+    box-shadow:
+        0 0 25px rgba(0,240,255,0.12);
+}
+
+.persona img{
+    width: 350px;
+    object-fit: cover;
+    /* Evita desfoque ao redimensionar a imagem */
+    background-repeat: no-repeat;
+    
+    /* Melhora a nitidez em telas de alta resolução (Retina) */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    min-height: 20vh;
+    border-radius: 6px;
+    
+}
+
+.persona-info{
     padding: 30px;
-
-    border-radius: 14px;
-
-    border-left: 4px solid #00f7ff;
+    flex: 1;
 }
 
-
-.persona h2{
-    color: #00f7ff;
-
-    margin-bottom: 20px;
-}
-
-
-.persona ul{
-    list-style: none;
-}
-
-
-.persona li{
+.persona-info h2{
+    color: var(--neon);
     margin-bottom: 10px;
-
-    color: #d9d9d9;
 }
 
-/* Rodapé */
-footer{
-    text-align: center;
-    padding: 30px;
-    background-color: #05070a;
+.tag-persona{
+    display: inline-block;
+    padding: 8px 14px;
+    background-color: rgba(0,240,255,0.1);
+    border: 1px solid rgba(0,240,255,0.2);
+    border-radius: 30px;
+    margin-bottom: 20px;
+    color: var(--neon);
+}
 
-    margin-top: 60px;
+
+.descricao-persona{
+    color: var(--texto-secundario);
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+
+/* GRID DOS DADOS */
+
+.dados-grid{
+    color: var(--texto-secundario);
+    display: grid;
+
+    grid-template-columns:
+    repeat(2, 1fr);
+    gap: 20px;
+}
+
+
+.dado{
+    background-color: #1b1b1b;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #2b2b2b;
+}
+
+
+.dado h3{
+    color: var(--verde-neon);
+    margin-bottom: 10px;
 }
